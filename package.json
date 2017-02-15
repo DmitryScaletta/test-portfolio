@@ -1,0 +1,36 @@
+{
+  "name": "test-portfolio",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp build"
+  },
+  "author": "DmitryScaletta",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.7.2",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-csso": "^2.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-inline-source": "^3.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-postcss": "^6.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-uncache": "^0.4.0-beta1",
+    "imagemin-pngquant": "^5.0.0",
+    "postcss-import": "^9.1.0",
+    "st": "^1.2.0",
+    "susy": "^2.2.12"
+  },
+  "dependencies": {
+    "flexboxgrid-sass": "^8.0.5",
+    "font-awesome": "^4.7.0"
+  }
+}
