@@ -12,6 +12,7 @@
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.4.5",
@@ -26,11 +27,10 @@
     "gulp-uncache": "^0.4.0-beta1",
     "imagemin-pngquant": "^5.0.0",
     "postcss-import": "^9.1.0",
-    "st": "^1.2.0",
-    "susy": "^2.2.12"
+    "st": "^1.2.0"
   },
   "dependencies": {
     "flexboxgrid-sass": "^8.0.5",
-    "font-awesome": "^4.7.0"
+    "normalize-scss": "^6.0.0"
   }
 }

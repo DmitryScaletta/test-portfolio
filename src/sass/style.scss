@@ -1,11 +1,9 @@
-@import "font-awesome";
+@import "normalize";
+@include normalize();
 
-// $breakpoints:
-//   sm 48rem,
-//   md 64rem,
-//   lg 80rem,
-//   xlg 90rem,
-//   newbreakpoint 120rem;
+@import "icomoon";
+
+
 
 // $breakpoints:
 // 	sm 48em 46rem,
@@ -32,11 +30,6 @@ $gray-dark:  #a7a7a7;
 }
 
 
-// Exo2 semi-bold
-// Exo2 thin
-// Exo2 regular
-// FontAwesome
-// Pe icon 7 stoke
 
 // $fw-thin:    100
 // $fw-light:   300
@@ -46,7 +39,7 @@ $gray-dark:  #a7a7a7;
 // $fw-black:   900
 
 
-// main
+
 html {
 	box-sizing: border-box;
 }
@@ -65,15 +58,12 @@ body {
 	box-sizing: border-box;
 }
 
-
 a {	
 	color: $primary;
 	text-decoration: none;
 }
 
-a:hover {
-	// text-decoration: underline;
-}
+a:hover {}
 
 
 
@@ -102,7 +92,6 @@ a:hover {
 	&_upper {
 		text-transform: uppercase;
 	}
-
 
 	&:after {
 		content: '';
@@ -229,7 +218,7 @@ a:hover {
 			right: 0;
 			width: 491px;
 			height: 446px;
-		    z-index: -1;
+			z-index: -1;
 			background: url("../img/bg-section-feedback.png") 0 0 no-repeat;
 			transform: rotate(180deg);
 		}
@@ -281,7 +270,6 @@ a:hover {
 
 .section-header {
 	@extend .row;
-	// @extend .col-xs-offset-4;
 	
 	&__image {
 		padding-top: 50px;
@@ -329,7 +317,7 @@ a:hover {
 	}
 
 	&__buttons {
-	    padding-bottom: 10px;
+		padding-bottom: 10px;
 	}
 }
 
@@ -346,14 +334,8 @@ a:hover {
 
 
 .skill {
-
 	@extend .col-xs-5;
 	padding-top: 26px;
-
-	// &:nth-child(2) {
-		// @include span(5 of 10)
-		// @include push(5 of 10)
-	// }
 
 	&__title {
 		padding: 15px 0;
@@ -512,6 +494,7 @@ a:hover {
 		margin: 50px 25px;
 		text-align: center;
 		font-size: 24px;
+		line-height: 50px;
 		color: $secondary;
 		border: 2px solid $secondary;
 		border-radius: 50%;
@@ -777,7 +760,8 @@ a:hover {
 
 
 .contact-form {
-	
+
+
 	&__input,
 	&__select,
 	&__textarea {
@@ -814,3 +798,4 @@ a:hover {
 		margin-top: 35px;
 	}
 }
+
