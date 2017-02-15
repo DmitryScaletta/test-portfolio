@@ -13,6 +13,7 @@ const pngquant     = require('imagemin-pngquant')
 
 const http         = require('http')
 const st           = require('st')
+const del          = require('del')
 
 
 const SOURCE_FOLDER = './src'
@@ -23,14 +24,14 @@ gulp.task('styles', () => {
 		.src(`${SOURCE_FOLDER}/sass/**/*.scss`)
 		.pipe(sass({
 			// outputStyle: 'compressed',
+			// indentedSyntax: true,
 			includePaths: [
 				'node_modules/flexboxgrid-sass',
-				'node_modules/font-awesome/scss'
+				'node_modules/normalize-scss/sass',
 			],
-			// indentedSyntax: true,
 		}).on('error', sass.logError))
 		.pipe(autoprefixer('last 4 versions', 'ie 11'))
-		// .pipe(csso())
+		.pipe(csso())
 		.pipe(gulp.dest(`${OUTPUT_FOLDER}/css`))
 		.pipe(browserSync.stream())
 })
@@ -64,10 +65,20 @@ gulp.task('images', () => {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		})))
-		.pipe(gulp.dest(`${OUTPUT_FOLDER}/img/`));
+		.pipe(gulp.dest(`${OUTPUT_FOLDER}/img/`))
 })
 
-gulp.task('build', ['markup', 'scripts', 'styles', 'images'])
+gulp.task('fonts', () => {
+	return gulp
+		.src(`${SOURCE_FOLDER}/fonts/**/*`)
+		.pipe(gulp.dest(`${OUTPUT_FOLDER}/fonts/`))
+})
+
+gulp.task('clean', function() {
+	return del.sync('dist');
+})
+
+gulp.task('build', ['clean', 'markup', 'scripts', 'styles', 'images', 'fonts'])
 
 gulp.task('default', ['build'])
 
