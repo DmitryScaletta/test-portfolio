@@ -169,7 +169,7 @@ a:hover {}
 		color: $gray-dark;
 		border-bottom: 1px solid $gray-dark;
 		text-transform: uppercase;
-		@include transitions(color, padding);
+		@include transitions(color, padding-left);
 		
 		&:after {
 			content: '';
