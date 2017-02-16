@@ -5,6 +5,7 @@ const csso         = require('gulp-csso')
 const autoprefixer = require('gulp-autoprefixer')
 const babel        = require('gulp-babel')
 const uglify       = require('gulp-uglifyjs')
+const inlinesource = require('gulp-inline-source')
 const minifyMarkup = require('gulp-htmlmin')
 const imagemin     = require('gulp-imagemin')
 const cache        = require('gulp-cache')
@@ -51,12 +52,6 @@ gulp.task('scripts', function() {
 gulp.task('markup', () => {
 	return gulp
 		.src(`${SOURCE_FOLDER}/*.html`)
-		.pipe(minifyMarkup({
-			collapseWhitespace: true,
-			collapseBooleanAttributes: true,
-			removeComments: true,
-			removeRedundantAttributes: true,
-		}))
 		.pipe(gulp.dest(OUTPUT_FOLDER))
 })
 
@@ -82,7 +77,21 @@ gulp.task('clean', function() {
 	return del.sync('dist');
 })
 
-gulp.task('build', ['clean', 'markup', 'scripts', 'styles', 'images', 'fonts'])
+gulp.task('build', ['clean', 'scripts', 'styles', 'images', 'fonts'], () => {
+	return gulp
+		.src(`${SOURCE_FOLDER}/*.html`)
+		.pipe(inlinesource({
+			compress: false,
+			rootpath: OUTPUT_FOLDER
+		}))
+		.pipe(minifyMarkup({
+			collapseWhitespace: true,
+			collapseBooleanAttributes: true,
+			removeComments: true,
+			removeRedundantAttributes: true,
+		}))
+		.pipe(gulp.dest(OUTPUT_FOLDER))
+})
 
 gulp.task('default', ['build'])
 
