@@ -3,6 +3,7 @@ const gulp         = require('gulp')
 const sass         = require('gulp-sass')
 const csso         = require('gulp-csso')
 const autoprefixer = require('gulp-autoprefixer')
+const babel        = require('gulp-babel')
 const uglify       = require('gulp-uglifyjs')
 const minifyMarkup = require('gulp-htmlmin')
 const imagemin     = require('gulp-imagemin')
@@ -39,6 +40,9 @@ gulp.task('styles', () => {
 gulp.task('scripts', function() {
 	return gulp
 		.src(`${SOURCE_FOLDER}/js/**/*.js`)
+		.pipe(babel({
+			presets: ['es2015']
+		}))
 		// .pipe(concat('bundle.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(`${OUTPUT_FOLDER}/js`))
@@ -84,9 +88,9 @@ gulp.task('default', ['build'])
 
 gulp.task('browser-sync', function() {
 	browserSync.init({
-        server: OUTPUT_FOLDER,
+		server: OUTPUT_FOLDER,
 		notify: false
-    })
+	})
 })
 
 gulp.task('watch', ['browser-sync', 'markup', 'styles', 'scripts'], function() {
