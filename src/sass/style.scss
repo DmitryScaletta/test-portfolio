@@ -258,10 +258,22 @@ a:hover {}
 			content: '';
 			position: absolute;
 			left: 0;
+			bottom: 1px;
+			width: 66px;
+			height: 3px;
+			background: $primary;
+			border-top:    1px solid #cddbff;
+			border-bottom: 1px solid #cddbff;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			left: 66px;
 			bottom: 0;
-			width: 70px;
 			height: 5px;
-			background: url("../img/section-title-hr.png") no-repeat 0 0;
+			width: 5px;
+			border: 2px solid $primary;
+			border-radius: 50%;
 		}
 	}
 
